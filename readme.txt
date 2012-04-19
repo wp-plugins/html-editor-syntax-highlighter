@@ -10,6 +10,7 @@ Add syntax highlighting to the HTML editor.
 
 == Description ==
 
+ Add syntax highlighting to the Post/Page HTML editor.
 
 == Installation ==
 
@@ -18,3 +19,7 @@ Add syntax highlighting to the HTML editor.
 
 = 1.0 =
 Initial release.
+
+== Screenshots ==
+1. Syntax highlighting in the Post/Page HTML editor.
+2. Syntax highlighting in the Post/Page HTML editor - full screen mode.

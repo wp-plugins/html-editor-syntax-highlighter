@@ -5,10 +5,10 @@
  * Description: Syntax Highlighting in WordPress HTML Editor
  * Author: Peter Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.0
+ * Version: 1.1
  * Requires at least: 3.3
  * Tested up to: 3.3
- * Stable tag: 1.0
+ * Stable tag: 1.1
  **/
 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
@@ -32,6 +32,20 @@ class wp_html_editor_syntax {
 				fullscreen.switchmode('html');
 				switchEditors.switchto(document.getElementById("content-html"));
 
+				//fix
+				var visualEditorEnabled;
+
+				if (document.getElementById("content-tmce") != null) {
+					visualEditorEnabled = true;
+				} else {
+					visualEditorEnabled = false;
+				}
+
+				if (visualEditorEnabled) {
+					switchEditors.switchto(document.getElementById("content-html"));
+				}
+				// end fix
+
 				var editor = CodeMirror.fromTextArea(document.getElementById(el), {
 					mode: "text/html",
 					tabMode: "indent",
@@ -51,11 +65,13 @@ class wp_html_editor_syntax {
 				});
 				var hlLine = editor.setLineClass(0, "activeline");
 				
-				document.getElementById("content-tmce").onclick = function(e){
-					editor.toTextArea();
-					switchEditors.switchto(document.getElementById("content-tmce"));
-					document.getElementById("content-html").onclick = function(e){
-						runEditorHighlighter("content");
+				if (visualEditorEnabled) {
+					document.getElementById("content-tmce").onclick = function(e){
+						editor.toTextArea();
+						switchEditors.switchto(document.getElementById("content-tmce"));
+						document.getElementById("content-html").onclick = function(e){
+							runEditorHighlighter("content");
+						}
 					}
 				}
 				

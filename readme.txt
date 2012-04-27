@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax hilighting
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 1.0
+Stable tag: 1.1
 
 Add syntax highlighting to the HTML editor.
 
@@ -19,6 +19,10 @@ Add syntax highlighting to the HTML editor.
 
 = 1.0 =
 Initial release.
+
+= 1.1 =
+Bug fix (thanks to collinprice):
+– when user has the visual editor disabled this plugin does not show up. 
 
 == Screenshots ==
 1. Syntax highlighting in the Post/Page HTML editor.

@@ -5,10 +5,10 @@
  * Description: Syntax Highlighting in WordPress HTML Editor
  * Author: Peter Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.1
+ * Version: 1.2
  * Requires at least: 3.3
  * Tested up to: 3.3
- * Stable tag: 1.1
+ * Stable tag: 1.2
  **/
 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
@@ -30,7 +30,7 @@ class wp_html_editor_syntax {
 		
 			function runEditorHighlighter(el) {
 				fullscreen.switchmode('html');
-				switchEditors.switchto(document.getElementById("content-html"));
+				//switchEditors.switchto(document.getElementById("content-html"));
 
 				//fix
 				var visualEditorEnabled;
@@ -119,8 +119,9 @@ class wp_html_editor_syntax {
 	}
 	
 	private function is_editor(){
-		if (!strstr($_SERVER['SCRIPT_NAME'],'post.php'))
+		if (!strstr($_SERVER['SCRIPT_NAME'],'post.php') && !strstr($_SERVER['SCRIPT_NAME'],'post-new.php')) {
 			return false;
+		}
 		return true;
 	}
 }

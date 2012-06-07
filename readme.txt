@@ -27,6 +27,8 @@ Bug fix (thanks to collinprice):
 = 1.2 =
 Bug fix:
 – plugin does not work in new post/page.
+– ability to resize editing box (works on FireFox, Chrome, Safari).
+
 
 == Screenshots ==
 1. Syntax highlighting in the Post/Page HTML editor.

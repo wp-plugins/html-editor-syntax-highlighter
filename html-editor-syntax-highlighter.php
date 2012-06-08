@@ -5,10 +5,10 @@
  * Description: Syntax Highlighting in WordPress HTML Editor
  * Author: Peter Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.2
+ * Version: 1.2.1
  * Requires at least: 3.3
  * Tested up to: 3.3
- * Stable tag: 1.2
+ * Stable tag: 1.2.1
  **/
 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
@@ -116,6 +116,10 @@ class wp_html_editor_syntax {
 				<script src="<?php echo HESH_LIBS; ?>htmlmixed.js"></script>
 				<style>
 					.CodeMirror-scroll {resize: vertical;}
+					.wp-editor-area,
+					.quicktags-toolbar input.ed_button {display: none;}
+					.quicktags-toolbar input#qt_content_fullscreen {display: inline-block;}
+				</style>
 				</style>
 		<?php
 

@@ -115,7 +115,7 @@ class wp_html_editor_syntax {
 				<script src="<?php echo HESH_LIBS; ?>css.js"></script>
 				<script src="<?php echo HESH_LIBS; ?>htmlmixed.js"></script>
 				<style>
-					.CodeMirror-scroll {resize: both;}
+					.CodeMirror-scroll {resize: vertical;}
 				</style>
 		<?php
 

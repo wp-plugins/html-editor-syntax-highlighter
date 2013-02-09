@@ -3,7 +3,7 @@ Contributors: nixdns
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TM7JTJY6HDTAQ
 Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax hilighting
 Requires at least: 3.3
-Tested up to: 3.3
+Tested up to: 3.5.1
 Stable tag: 1.3.0
 
 Add syntax highlighting to the HTML editor.
@@ -38,9 +38,6 @@ Bug fix (thanks to collinprice):
 
 = 1.0 =
 Initial release.
-
-
-
 
 == Screenshots ==
 1. Syntax highlighting in the Post/Page HTML editor.

@@ -104,7 +104,7 @@ class wp_html_editor_syntax {
 				if (!cmToolbar.getAttribute('data-updated')) {
 					cmToolbarVars = [
 						//['search','','','Search:'],
-						['more','\r<!--more-->\r',''],
+						['more','<!--more-->',''],
 						['comment','<!--','-->'],
 						['code','<code>','</code>'],
 						['li','<li>','</li>'],

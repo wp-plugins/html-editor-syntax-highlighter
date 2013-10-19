@@ -22,6 +22,7 @@ Add syntax highlighting to the HTML editor.
 = 1.3.2 =
 * Updated CodeMirror library 
 * Increased loading performance
+* Match brackets
 
 = 1.3.0 =
 * CodeMirror library updated to the version 3.02

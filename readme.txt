@@ -3,8 +3,8 @@ Contributors: nixdns
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TM7JTJY6HDTAQ
 Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax hilighting
 Requires at least: 3.3
-Tested up to: 3.5.1
-Stable tag: 1.3.0
+Tested up to: 3.6.1
+Stable tag: 1.3.2
 
 Add syntax highlighting to the HTML editor.
 
@@ -19,9 +19,13 @@ Add syntax highlighting to the HTML editor.
 
 == Changelog ==
 
+= 1.3.2 =
+* Updated CodeMirror library 
+* Increased loading performance
+
 = 1.3.0 =
-* CodeMirror libruary updated to the version 3.02
-* Added quicktags toolbar buttons
+* CodeMirror library updated to the version 3.02
+* Added quick-tags toolbar buttons
 * Preserve the scroll position after update or page reload
 
 = 1.2.1 =
@@ -38,6 +42,9 @@ Bug fix (thanks to collinprice):
 
 = 1.0 =
 Initial release.
+
+
+
 
 == Screenshots ==
 1. Syntax highlighting in the Post/Page HTML editor.

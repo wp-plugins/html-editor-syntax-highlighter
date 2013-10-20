@@ -6,7 +6,7 @@ Requires at least: 3.3
 Tested up to: 3.6.1
 Stable tag: 1.3.2
 
-Add syntax highlighting to the HTML editor.
+Add syntax highlighting to the Post/Page HTML editor.
 
 == Description ==
 

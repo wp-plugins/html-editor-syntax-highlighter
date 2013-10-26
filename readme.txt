@@ -4,9 +4,9 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax hilighting
 Requires at least: 3.3
 Tested up to: 3.6.1
-Stable tag: 1.3.2
+Stable tag: 1.4.0
 
-Add syntax highlighting to the Post/Page HTML editor.
+Add syntax highlighting to the HTML editor.
 
 == Description ==
 
@@ -18,6 +18,12 @@ Add syntax highlighting to the Post/Page HTML editor.
 2. Activate the plugin on the 'Plugins' page
 
 == Changelog ==
+
+= 1.4.0 =
+* New fullscreen mode
+* Remembers tab state
+* Editor resize handler 
+* Code refactoring and minification for better loading performance
 
 = 1.3.2 =
 * Updated CodeMirror library 

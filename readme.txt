@@ -1,6 +1,6 @@
 === HTML Editor Syntax Highlighter ===
 Contributors: nixdns
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TM7JTJY6HDTAQ
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BR5C4F42WXX6J
 Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax hilighting
 Requires at least: 3.3
 Tested up to: 3.7
@@ -31,7 +31,7 @@ Add syntax highlighting to the HTML editor.
 * Match brackets
 
 = 1.3.0 =
-* CodeMirror library updated to the version 3.02
+* CodeMirror library updated to version 3.02
 * Added quick-tags toolbar buttons
 * Preserve the scroll position after update or page reload
 

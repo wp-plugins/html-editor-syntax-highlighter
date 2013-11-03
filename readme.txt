@@ -12,6 +12,13 @@ Add syntax highlighting to the HTML editor.
 
  Add syntax highlighting to the Post/Page HTML editor.
 
+= Features =
+
+* Syntax highlighting in the Post/Page HTML editor
+* Save your posts and pages pressing Ctrl+S (Cmd+S on Mac)
+* New fullscreen mode.
+* Toggle fullscreen mode with F11/Esc hotkeys
+
 == Installation ==
 
 1. Upload the 'html-editor-syntax-highlighter' directory to the '/wp-content/plugins/' directory

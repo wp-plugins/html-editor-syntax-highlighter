@@ -1,7 +1,7 @@
 === HTML Editor Syntax Highlighter ===
 Contributors: nixdns
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BR5C4F42WXX6J
-Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax hilighting
+Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax highlighting, hilighting
 Requires at least: 3.3
 Tested up to: 3.7
 Stable tag: 1.4.1
@@ -11,6 +11,13 @@ Add syntax highlighting to the HTML editor.
 == Description ==
 
  Add syntax highlighting to the Post/Page HTML editor.
+
+= Features =
+
+* Syntax highlighting in the Post/Page HTML editor
+* Save your posts and pages pressing Ctrl+S (Cmd+S on Mac)
+* New fullscreen mode.
+* Toggle fullscreen mode with F11/Esc hotkeys
 
 == Installation ==
 

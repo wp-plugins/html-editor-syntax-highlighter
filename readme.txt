@@ -18,6 +18,7 @@ Add syntax highlighting to the HTML editor.
 * Save your posts and pages pressing Ctrl+S (Cmd+S on Mac)
 * New fullscreen mode.
 * Toggle fullscreen mode with F11/Esc hotkeys
+* Restore cursor position after page is reload
 
 == Installation ==
 

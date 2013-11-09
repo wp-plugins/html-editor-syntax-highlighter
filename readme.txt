@@ -28,7 +28,7 @@ Add syntax highlighting to the HTML editor.
 == Changelog ==
 
 = 1.4.3 =
-* Fixed jumping cursor issue with ‘/’ key
+* Fixed jumping cursor issue when ‘/’ key is pressed.
 
 = 1.4.2 =
 * Fixed a focus bug

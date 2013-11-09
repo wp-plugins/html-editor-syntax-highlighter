@@ -1,10 +1,10 @@
 === HTML Editor Syntax Highlighter ===
 Contributors: nixdns
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BR5C4F42WXX6J
-Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax highlighting, hilighting
+Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax highlighting
 Requires at least: 3.3
 Tested up to: 3.7
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 
 Add syntax highlighting to the HTML editor.
 
@@ -26,6 +26,9 @@ Add syntax highlighting to the HTML editor.
 2. Activate the plugin on the 'Plugins' page
 
 == Changelog ==
+
+= 1.4.3 =
+* Fixed jumping cursor issue with ‘/’ key
 
 = 1.4.2 =
 * Fixed a focus bug

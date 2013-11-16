@@ -28,7 +28,7 @@ Add syntax highlighting to the HTML editor.
 == Changelog ==
 
 = 1.4.4 =
-* AddMedia button now works correctly in Text mode
+* Add Media button now works correctly in Text mode
 * Fixed jumping cursor issue when ‘:’, '{', '}' keys are pressed
 
 = 1.4.3 =

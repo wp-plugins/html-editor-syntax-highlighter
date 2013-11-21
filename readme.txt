@@ -1,6 +1,6 @@
 === HTML Editor Syntax Highlighter ===
 Contributors: nixdns
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BR5C4F42WXX6J
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DC9K7UMY8AGUJ
 Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax highlighting, text editor, editor, text editor syntax, editor, editor syntax
 Requires at least: 3.3
 Tested up to: 3.7.1

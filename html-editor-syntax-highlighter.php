@@ -23,8 +23,18 @@ class wp_html_editor_syntax {
 		if (!$this->is_editor())
 			return;
 		?>
+
+		<!-- Dev -->
+		<link rel="stylesheet" href="<?php echo HESH_LIBS; ?>codemirror.min.dev.css">
+		<link rel="stylesheet" href="<?php echo HESH_LIBS; ?>hesh.dev.css">
+		<script src="<?php echo HESH_LIBS; ?>codemirror.min.dev.js"></script>
+		<script src="<?php echo HESH_LIBS; ?>hesh.dev.js"></script>
+
+		<!-- Prod -->
+		<!--
 		<link rel="stylesheet" href="<?php echo HESH_LIBS; ?>hesh.min.css">
 		<script src="<?php echo HESH_LIBS; ?>hesh.min.js"></script>
+		-->
 		<?php
 	}
 	private function is_editor(){

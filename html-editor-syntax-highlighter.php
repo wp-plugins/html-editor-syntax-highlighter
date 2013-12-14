@@ -5,10 +5,10 @@
  * Description: Syntax Highlighting in WordPress HTML Editor
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.4.4
+ * Version: 1.4.5
  * Requires at least: 3.3
- * Tested up to: 3.7.1
- * Stable tag: 1.4.4
+ * Tested up to: 3.8
+ * Stable tag: 1.4.5
  **/
 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
@@ -18,12 +18,29 @@ define('HESH_LIBS',plugins_url('/lib/',__FILE__));
 class wp_html_editor_syntax {
 	public function __construct(){
 		add_action('admin_head',array(&$this,'admin_head'));
+		add_action('admin_footer',array(&$this,'admin_footer'));
 	}
 	public function admin_head(){
 		if (!$this->is_editor())
 			return;
 		?>
 		<link rel="stylesheet" href="<?php echo HESH_LIBS; ?>hesh.min.css">
+		<!--[if lte IE 8]>
+			<style>
+				/* Fixing problems with hidden Textarea in IE */
+				#content {
+					display: block!important;
+					position: absolute;
+					left: -9000px;
+				}
+			</style>
+		<![endif]-->
+		<?php
+	}
+	public function admin_footer(){
+		if (!$this->is_editor())
+			return;
+		?>
 		<script src="<?php echo HESH_LIBS; ?>hesh.min.js"></script>
 		<?php
 	}

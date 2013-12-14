@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.4.4
+ * Version: 1.4.5
 */
 
 function heshPlugin() {
@@ -171,7 +171,7 @@ function heshPlugin() {
 		// Dirty
 		document.getElementById('insert-media-button').onclick = function() {
 			target.value = '';
-			target.className = 'IEtextarea';
+			//target.className = 'IEtextarea';
 			setTimeout(function(){
 				document.querySelector('.media-button-insert').onclick = function() {
 					setTimeout(function(){

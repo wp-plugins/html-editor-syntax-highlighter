@@ -5,7 +5,7 @@
  * Description: Syntax Highlighting in WordPress HTML Editor
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.4.5
+ * Version: 1.4.6
  * Requires at least: 3.3
  * Tested up to: 3.8.1
  * Stable tag: 1.4.6

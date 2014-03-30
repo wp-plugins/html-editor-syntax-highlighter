@@ -7,8 +7,8 @@
  * Author URI: http://mukhortov.com/
  * Version: 1.4.5
  * Requires at least: 3.3
- * Tested up to: 3.8
- * Stable tag: 1.4.5
+ * Tested up to: 3.8.1
+ * Stable tag: 1.4.6
  **/
 
 if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('You are not allowed to call this page directly.'); }
@@ -25,16 +25,6 @@ class wp_html_editor_syntax {
 			return;
 		?>
 		<link rel="stylesheet" href="<?php echo HESH_LIBS; ?>hesh.min.css">
-		<!--[if lte IE 8]>
-			<style>
-				/* Fixing problems with hidden Textarea in IE */
-				#content {
-					display: block!important;
-					position: absolute;
-					left: -9000px;
-				}
-			</style>
-		<![endif]-->
 		<?php
 	}
 	public function admin_footer(){

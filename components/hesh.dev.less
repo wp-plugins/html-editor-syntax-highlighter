@@ -1,5 +1,6 @@
 /* Codemirror v3.20 CSS files */
 @import "codemirror/codemirror.css.less";
+@import "codemirror/mbo.css.less";
 
 /* Concatenate and minify the file above with the rest of css and save as hesh.min.css */
 
@@ -7,7 +8,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.4.6
+ * Version: 1.4.7
 */
 
 .CodeMirror {
@@ -17,11 +18,24 @@
 	height: 500px;
 }
 
-.wp-editor-area,
 .wp-fullscreen-both,
 #wp-fullscreen-modes, /* fullscreen controls */
 .heshFullscreen #content_wp_fullscreen, /* fullscreen button in view mode */
-.quicktags-toolbar input.ed_button {
+#qt_content_strong, /* WP edit buttons */
+#qt_content_em,
+#qt_content_link,
+#qt_content_block,
+#qt_content_del,
+#qt_content_ins,
+#qt_content_img,
+#qt_content_ul,
+#qt_content_ol,
+#qt_content_li,
+#qt_content_code,
+#qt_content_more,
+#qt_content_close,
+#qt_content_fullscreen,
+.wp-editor-area /* Textarea */ {
 	display: none !important;
 }
 
@@ -32,6 +46,12 @@
 .CodeMirror-matchingbracket {
 	background-color: #fff490;
 	color: inherit !important;
+	box-shadow: 0px 0px 5px #fff490;
+}
+
+.cm-s-mbo .CodeMirror-matchingbracket {
+	color: #000 !important;
+	text-decoration: none;
 }
 
 .content-resize-handle {
@@ -45,7 +65,8 @@
 	display: none;
 }
 
-#cm_content_fullscreen {
+#cm_content_fullscreen,
+#cm_select_theme {
 	float: right;
 }
 .heshFullscreen {

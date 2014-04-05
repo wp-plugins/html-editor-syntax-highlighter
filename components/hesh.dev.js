@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.4.6
+ * Version: 1.4.7
 */
 
 function heshPlugin() {
@@ -26,14 +26,17 @@ function heshPlugin() {
 		postID = document.getElementById("post_ID") !== null ? document.getElementById("post_ID").value : 0,
 		tab_html = document.getElementById("content-html"),
 		tab_tmce = document.getElementById("content-tmce"),
+		theme = document.cookie.indexOf("theme=mbo") !== -1 ? 'mbo' : 'default',
 		visualEditor = document.cookie.indexOf("editor%3Dtinymce") !== -1 ? true : false,
 		visualEditorEnabled = document.getElementById("content-tmce") !== null ? true : false,
+		toolbar = document.getElementById("ed_toolbar"),
 		fullscreenBox = document.getElementById("wp-content-editor-container"),
 		fullscreenClass = "heshFullscreen",
 		publishButton = document.getElementById('publish'),
 		options = {
 			mode: "text/html",
 			tabMode: "indent",
+			theme: theme,
 			lineNumbers: true,
 			matchBrackets: true,
 			indentUnit: 4,
@@ -59,7 +62,6 @@ function heshPlugin() {
 			}
 		},
 	addButtons = function() {
-		var toolbar = document.getElementById("ed_toolbar");
 		if (!buttonsAdded) {
 			var toolbarVars = {
 				more:		['<!--more-->',''],
@@ -85,6 +87,7 @@ function heshPlugin() {
 				toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_'+key+'" data-start=\''+t[0]+'\' data-end=\''+t[1]+'\' '+t3+' class="ed_button cm_ed_button" value="'+key+'">');
 				document.getElementById('cm_content_'+key).onclick = buttonClick;
 			}
+			themeSwitcher();
 			fullscreen();
 			buttonsAdded = 1;
 		}
@@ -167,9 +170,23 @@ function heshPlugin() {
 		editor.focus();
 	},
 	fullscreen = function() {
-		document.getElementById("ed_toolbar").insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_fullscreen" class="ed_button" title="Toggle fullscreen mode" value="fullscreen">');
+		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_fullscreen" class="ed_button" title="Toggle fullscreen mode" value="fullscreen">');
 		document.getElementById('cm_content_fullscreen').onclick = toggleFullscreen;
 	},
+
+	themeSwitcher = function() {
+		var colour = function () {
+			return theme === 'mbo' ? 'light' : 'dark';
+		}
+		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_select_theme" class="ed_button" title="Change editor colour scheme" value="'+colour()+'">');
+		document.getElementById("cm_select_theme").onclick = function() {
+			theme = theme === 'mbo' ? 'default' : 'mbo';
+			editor.setOption('theme', theme);
+			document.cookie = 'hesh_plugin=theme='+theme;
+			this.value = colour();
+		};
+	},
+
 	addMedia = function() {
 		// We want to do it only ones
 		if (!window.send_to_editor_wp) {
@@ -181,7 +198,7 @@ function heshPlugin() {
 				} else {
 					window.send_to_editor_wp(media);
 				}
-			}
+			};
 		}
 	};
 
@@ -192,6 +209,6 @@ function heshPlugin() {
 		runEditor(target);
 		if (visualEditorEnabled) tab_tmce.onclick = toVisual;
 	}
-
 }
 window.onload = heshPlugin;
+

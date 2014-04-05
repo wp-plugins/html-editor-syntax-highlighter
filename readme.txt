@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: html editor, syntax highlighter, plugin editor, syntax, highlighting, syntax highlighting, text editor, editor, text editor syntax, editor, editor syntax
 Requires at least: 3.3
 Tested up to: 3.8.1
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 
 Add syntax highlighting to the HTML editor.
 
@@ -26,6 +26,9 @@ Add syntax highlighting to the HTML editor.
 2. Activate the plugin on the 'Plugins' page
 
 == Changelog ==
+
+= 1.4.7 =
+* You can now select Light or Dark editor colour theme
 
 = 1.4.6 =
 * Fixed issue when "Add Media" button stopped working

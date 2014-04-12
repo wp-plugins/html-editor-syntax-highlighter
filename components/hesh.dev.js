@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.4.7
+ * Version: 1.4.8
 */
 
 function heshPlugin() {
@@ -98,8 +98,17 @@ function heshPlugin() {
 			end = this.getAttribute('data-end'),
 			cmPrompt = this.getAttribute('data-prompt') || null,
 			selText = editor.getSelection();
-		if (cmPrompt) start = start.replace('$',prompt(cmPrompt, ''));
-		editor.replaceSelection(start+selText+end);
+		if (this.id === 'cm_content_link' && wpLink) { //Native WP link popup window
+			wpLink.open();
+			document.getElementById('wp-link-submit').onclick = function(){
+				var attrs = wpLink.getAttrs();
+				editor.replaceSelection('<a href="'+attrs.href+'" title="'+attrs.title+'" target="'+attrs.target+'">'+selText+'</a>');
+				wpLink.close();
+			};
+		} else {
+			if (cmPrompt) start = start.replace('$',prompt(cmPrompt, ''));
+			editor.replaceSelection(start+selText+end);
+		}
 		editor.setSelection(selStart, editor.getCursor("end"));
 		editor.setCursor(selStart.line, selStart.ch + start.length);
 		editor.focus();
@@ -177,7 +186,7 @@ function heshPlugin() {
 	themeSwitcher = function() {
 		var colour = function () {
 			return theme === 'mbo' ? 'light' : 'dark';
-		}
+		};
 		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_select_theme" class="ed_button" title="Change editor colour scheme" value="'+colour()+'">');
 		document.getElementById("cm_select_theme").onclick = function() {
 			theme = theme === 'mbo' ? 'default' : 'mbo';
@@ -190,9 +199,9 @@ function heshPlugin() {
 	addMedia = function() {
 		// We want to do it only ones
 		if (!window.send_to_editor_wp) {
-			window.send_to_editor_wp = window.send_to_editor;
-			window.send_to_editor = function (media) {
-				if (isOn) {
+			window.send_to_editor_wp = send_to_editor;
+			send_to_editor = function (media) {
+				if (isOn && wpActiveEditor === 'content') {
 					editor.replaceSelection(media);
 					editor.save();
 				} else {

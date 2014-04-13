@@ -141,8 +141,8 @@
 		},
 	"\/html-editor-syntax-highlighter.php": {
 		"fileType": 8192,
-		"ignore": 0,
-		"ignoreWasSetByUser": 0,
+		"ignore": 1,
+		"ignoreWasSetByUser": 1,
 		"inputAbbreviatedPath": "\/html-editor-syntax-highlighter.php",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsSetByUser": 0

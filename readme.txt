@@ -21,6 +21,8 @@ Add syntax highlighting to the HTML editor.
 * New fullscreen mode.
 * Toggle fullscreen mode with F11/Esc hotkeys
 
+If you like the plugin, don’t hesitate to support me and leave a review :)
+
 
 == Installation ==
 

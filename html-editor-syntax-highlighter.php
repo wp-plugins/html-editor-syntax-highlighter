@@ -7,7 +7,7 @@
  * Author URI: http://mukhortov.com/
  * Version: 1.4.8
  * Requires at least: 3.3
- * Tested up to: 3.8.2
+ * Tested up to: 3.9
  * Stable tag: 1.4.8
  **/
 

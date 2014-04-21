@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.4.8
+ * Version: 1.5.0
 */
 
 function heshPlugin() {
@@ -102,16 +102,20 @@ function heshPlugin() {
 			wpLink.open();
 			document.getElementById('wp-link-submit').onclick = function(){
 				var attrs = wpLink.getAttrs();
-				editor.replaceSelection('<a href="'+attrs.href+'" title="'+attrs.title+'" target="'+attrs.target+'">'+selText+'</a>');
+				start = '<a href="'+attrs.href+'" title="'+attrs.title+'" target="'+attrs.target+'">';
+				editor.replaceSelection(start+selText+'</a>');
 				wpLink.close();
+				//editor.setSelection(selStart, editor.getCursor("end"));
+				editor.setCursor(selStart.line, selStart.ch + start.length);
+				editor.focus();
 			};
 		} else {
 			if (cmPrompt) start = start.replace('$',prompt(cmPrompt, ''));
 			editor.replaceSelection(start+selText+end);
+			//editor.setSelection(selStart, editor.getCursor("end"));
+			editor.setCursor(selStart.line, selStart.ch + start.length);
+			editor.focus();
 		}
-		editor.setSelection(selStart, editor.getCursor("end"));
-		editor.setCursor(selStart.line, selStart.ch + start.length);
-		editor.focus();
 	},
 	runEditor = function(target) {
 		editor = CodeMirror.fromTextArea(target, options);

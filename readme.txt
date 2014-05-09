@@ -31,6 +31,12 @@ If you like the plugin, don’t hesitate to support me and leave a review :)
 
 == Changelog ==
 
+= 1.6.0 =
+* You can change font size of the editor
+* Fixed issue with restoring cursor position
+* Updated CodeMirror library 
+* Some minor improvements
+
 = 1.5.0 =
 * Updated CodeMirror library 
 * Some minor improvements

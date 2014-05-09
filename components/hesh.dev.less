@@ -1,4 +1,4 @@
-/* Codemirror v3.20 CSS files */
+/* Codemirror v4.1 CSS files */
 @import "codemirror/codemirror.css.less";
 @import "codemirror/mbo.css.less";
 
@@ -8,7 +8,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.5.0
+ * Version: 1.6.0
 */
 
 .CodeMirror {
@@ -65,10 +65,35 @@
 	display: none;
 }
 
+.has-dfw .quicktags-toolbar {
+	padding-right: 3px !important;
+}
 #cm_content_fullscreen,
-#cm_select_theme {
+#cm_select_theme,
+#cm_font_size {
 	float: right;
 }
+/*
+#cm_font_size {
+	height: inherit;
+	font-size: 10px;
+}
+*/
+
+// FF hack
+@-moz-document url-prefix() {
+	#cm_font_size {
+		margin-top: 4px;
+	}
+}
+// webkit hack
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	#cm_font_size {
+		height: inherit;
+		font-size: 10px;
+	}
+}
+
 .heshFullscreen {
 	z-index: 99999;
 	position: fixed;

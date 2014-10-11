@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.6.0
+ * Version: 1.6.1
 */
 
 function heshPlugin() {
@@ -112,7 +112,7 @@ function heshPlugin() {
 			for (var key in toolbarVars) {
 				var t = toolbarVars[key];
 				var t3 = t[2] ? 'data-prompt="'+t[2]+'"' : '';
-				toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_'+key+'" data-start=\''+t[0]+'\' data-end=\''+t[1]+'\' '+t3+' class="ed_button cm_ed_button" value="'+key+'">');
+				toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_'+key+'" data-start=\''+t[0]+'\' data-end=\''+t[1]+'\' '+t3+' class="ed_button button cm_ed_button" value="'+key+'">');
 				document.getElementById('cm_content_'+key).onclick = buttonClick;
 			}
 			themeSwitcher();
@@ -122,25 +122,25 @@ function heshPlugin() {
 		}
 	},
 	buttonClick = function() {
-		var selStart = editor.getCursor("start"),
+		var selStart = editor.getCursor('start'),
 			start = this.getAttribute('data-start'),
 			end = this.getAttribute('data-end'),
 			cmPrompt = this.getAttribute('data-prompt') || null,
 			selText = editor.getSelection();
 		if (this.id === 'cm_content_link' && wpLink) { //Native WP link popup window
 			wpLink.open();
-			document.getElementById('wp-link-submit').onclick = function(){
+			document.getElementById('wp-link-submit').onclick = function() {
 				var attrs = wpLink.getAttrs();
-				start = '<a href="'+attrs.href+'" title="'+attrs.title+'" target="'+attrs.target+'">';
-				editor.replaceSelection(start+selText+'</a>');
+				start = '<a href="' + attrs.href + '" title="' + attrs.title + '" target="' + attrs.target + '">';
+				editor.replaceSelection(start + selText + '</a>');
 				wpLink.close();
 				//editor.setSelection(selStart, editor.getCursor("end"));
 				editor.setCursor(selStart.line, selStart.ch + start.length);
 				editor.focus();
 			};
 		} else {
-			if (cmPrompt) start = start.replace('$',prompt(cmPrompt, ''));
-			editor.replaceSelection(start+selText+end);
+			if (cmPrompt) start = start.replace('$', prompt(cmPrompt, ''));
+			editor.replaceSelection(start + selText+end);
 			//editor.setSelection(selStart, editor.getCursor("end"));
 			editor.setCursor(selStart.line, selStart.ch + start.length);
 			editor.focus();
@@ -191,7 +191,7 @@ function heshPlugin() {
 		editor.focus();
 	},
 	fullscreen = function() {
-		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_fullscreen" class="ed_button" title="Toggle fullscreen mode" value="fullscreen">');
+		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_fullscreen" class="ed_button button" title="Toggle fullscreen mode" value="fullscreen">');
 		document.getElementById('cm_content_fullscreen').onclick = toggleFullscreen;
 	},
 
@@ -199,7 +199,7 @@ function heshPlugin() {
 		var colour = function () {
 			return theme === 'mbo' ? 'light' : 'dark';
 		};
-		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_select_theme" class="ed_button" title="Change editor colour scheme" value="'+colour()+'">');
+		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_select_theme" class="ed_button button" title="Change editor colour scheme" value="' + colour() + '">');
 		document.getElementById("cm_select_theme").onclick = function() {
 			theme = theme === 'mbo' ? 'default' : 'mbo';
 			editor.setOption('theme', theme);
@@ -210,17 +210,17 @@ function heshPlugin() {
 
 	changeFontSize = function() {
 		var heshStyle = document.getElementById('hesh-style'),
-			style = '.CodeMirror {font-size: '+fontSize+'px !important;}';
+			style = '.CodeMirror {font-size: ' + fontSize + 'px !important;}';
 		if (heshStyle) {
 			heshStyle.innerHTML = style;
 		} else {
-			document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend','<style id="hesh-style">'+style+'</style>')
+			document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend', '<style id="hesh-style">' + style + '</style>')
 		}
 	},
 
 	fontSizeSwitcher = function() {
 		toolbar.insertAdjacentHTML('afterbegin',
-		'<select id="cm_font_size">'+
+		'<select id="cm_font_size" class="button">'+
 			'<option value="10">10</option>'+
 			'<option value="11">11</option>'+
 			'<option value="12">12</option>'+
@@ -231,7 +231,7 @@ function heshPlugin() {
 			'<option value="20">20</option>'+
 			'<option value="22">22</option>'+
 		'</select>');
-		var selector = document.getElementById("cm_font_size");
+		var selector = document.getElementById('cm_font_size');
 		changeFontSize();
 		selector.value = fontSize;
 		selector.onchange = function() {
@@ -242,7 +242,7 @@ function heshPlugin() {
 			runEditor(target);
 			editor.focus();
 			
-			document.cookie = 'hesh_plugin_font_size='+fontSize;
+			document.cookie = 'hesh_plugin_font_size=' + fontSize;
 		};
 	},
 	addMedia = function() {

@@ -8,14 +8,14 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.6.0
+ * Version: 1.6.1
 */
 
 .CodeMirror {
-	font-family: Menlo Regular,Consolas,Monaco,monospace;
+	font-family: Menlo Regular, Consolas, Monaco, monospace;
 	line-height: 150%;
 	font-size: 12px;
-	height: 500px;
+	height: auto;
 }
 
 .wp-fullscreen-both,
@@ -67,18 +67,17 @@
 
 .has-dfw .quicktags-toolbar {
 	padding-right: 3px !important;
+
+	.button:not(:first-child) {
+		margin-right: 3px;
+	}
 }
+
 #cm_content_fullscreen,
 #cm_select_theme,
 #cm_font_size {
 	float: right;
 }
-/*
-#cm_font_size {
-	height: inherit;
-	font-size: 10px;
-}
-*/
 
 // FF hack
 @-moz-document url-prefix() {
@@ -87,7 +86,7 @@
 	}
 }
 // webkit hack
-@media screen and (-webkit-min-device-pixel-ratio:0) {
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
 	#cm_font_size {
 		height: inherit;
 		font-size: 10px;
@@ -121,5 +120,24 @@
 @media only screen and (max-height: 550px), only screen and (max-device-height: 550px) {
 	.heshFullscreen .CodeMirror {
 		height: 75%!important;
+	}
+}
+
+
+// Styles for WP 4+
+.wp-editor-expand .html-active {
+	#post-status-info {
+		position: static!important;
+	}
+	#ed_toolbar {
+		z-index: 2;
+	}
+	.CodeMirror {
+		position: relative;
+		z-index: 1;
+		margin-top: 35px;
+	}
+	textarea.wp-editor-area {
+		height: 800px !important;
 	}
 }

@@ -100,6 +100,16 @@
 		"strictMath": 0,
 		"strictUnits": 0
 		},
+	"\/components\/codemirror\/xml.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/components\/codemirror\/xml.js",
+		"outputAbbreviatedPath": "\/components\/codemirror\/min\/xml-ck.js",
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/components\/hesh.dev.js": {
 		"fileType": 64,
 		"ignore": 0,

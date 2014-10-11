@@ -31,8 +31,9 @@ If you like the plugin, don’t hesitate to support me and leave a review :)
 
 == Changelog ==
 
-= 1.6.1 =
+= 1.6.2 =
 * Compatibility with WP 4.0
+* Fixed fullscreen mode
 
 = 1.6.0 =
 * You can change font size in the editor

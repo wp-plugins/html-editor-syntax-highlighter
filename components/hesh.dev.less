@@ -8,14 +8,14 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.6.2
+ * Version: 1.6.3
 */
 
 .CodeMirror {
 	font-family: Menlo Regular, Consolas, Monaco, monospace;
 	line-height: 150%;
 	font-size: 12px;
-	height: auto;
+	height: 500px; 
 }
 
 .wp-fullscreen-both,
@@ -55,11 +55,14 @@
 }
 
 .content-resize-handle {
-	width: 12px;
-	height: 19px;
+	width: 14px;
+	height: 24px;
 	cursor: ns-resize;
-	right: 2px;
+	right: 1px;
 	position: absolute;
+}
+#content-resize-handle {
+	display: table-cell !important;
 }
 .tmce-active .content-resize-handle {
 	display: none;

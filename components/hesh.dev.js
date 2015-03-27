@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.6.3
+ * Version: 1.6.4
 */
 
 function heshPlugin() {
@@ -33,6 +33,7 @@ function heshPlugin() {
 		fullscreenBox = document.getElementById("wp-content-editor-container"),
 		fullscreenClass = "heshFullscreen",
 		publishButton = document.getElementById('publish'),
+
 		options = {
 			mode: "text/html",
 			tabMode: "indent",
@@ -61,34 +62,58 @@ function heshPlugin() {
 				}
 			}
 		},
+
 	getCookie = function(name){
 		var value = "; " + document.cookie;
 		var parts = value.split("; " + name + "=");
 		if (parts.length == 2) return parts.pop().split(";").shift();
 	},
+
 	fontSize = getCookie('hesh_plugin_font_size') || '12',
+
 	runEditor = function(target) {
 		addButtons();
 		editor = CodeMirror.fromTextArea(target, options);
+
 		//Save changes to the textarea on the fly
 		editor.on("change", function() {
 			editor.save();
 		});
+
 		//Saving cursor state
-		editor.on("cursorActivity", function() {
+		editor.on('cursorActivity', function() {
 			var curPos = editor.getCursor();
 			document.cookie = 'hesh_plugin_pos='+postID + ',' + curPos.line + ',' + curPos.ch;
 		});
+
 		//Restoring cursor state
 		var curPos = (getCookie('hesh_plugin_pos') || '0,0,0').split(',');
 		if (postID === curPos[0]) {
 			editor.setCursor(parseFloat(curPos[1]),parseFloat(curPos[2]));
 		}
-		//addButtons();
+
 		resizeEditor();
 		addMedia();
 		isOn = 1;
+
+		updateTabBarPaddings();
+		window.addEventListener("resize", windowResized);
 	},
+
+	updateTabBarPaddings = function() {
+		document.querySelector('.CodeMirror').style.marginTop = toolbar.clientHeight + 'px';
+	},
+
+	windowResizeTimer,
+
+	windowResized = function() {
+		clearTimeout(windowResizeTimer);
+
+		windowResizeTimer = setTimeout(function() {
+			updateTabBarPaddings();
+		}, 250);		
+	},
+
 	addButtons = function() {
 		if (!buttonsAdded) {
 			var toolbarVars = {
@@ -121,6 +146,7 @@ function heshPlugin() {
 			buttonsAdded = 1;
 		}
 	},
+
 	buttonClick = function() {
 		var selStart = editor.getCursor('start'),
 			start = this.getAttribute('data-start'),
@@ -146,14 +172,17 @@ function heshPlugin() {
 			editor.focus();
 		}
 	},
+
 	toVisual = function() {
 		if (isOn) {
 			editor.toTextArea();
 			tab_html.onclick = toHTML;
 			switchEditors.switchto(this);
 			isOn = 0;
+			window.removeEventListener("resize", windowResized);
 		}
 	},
+
 	toHTML = function() {
 		if (!isOn) {
 			switchEditors.switchto(this);
@@ -162,6 +191,7 @@ function heshPlugin() {
 			//addMedia();
 		}
 	},
+
 	resizeEditor = function() {
 		var target = document.querySelector('.CodeMirror'),
 			handle = document.createElement('div'),
@@ -183,6 +213,7 @@ function heshPlugin() {
 			//editor.focus();
 		};
 	},
+
 	toggleFullscreen = function() {
 		fullscreenBox.className = fullscreenBox.className.indexOf(fullscreenClass) === -1 ? fullscreenBox.className +' '+ fullscreenClass : fullscreenBox.className.replace(fullscreenClass, '');
 		//this.value = this.value == 'fullscreen' ? 'exit fullscreen' : 'fullscreen';
@@ -190,6 +221,7 @@ function heshPlugin() {
 		btn.value = btn.value === 'fullscreen' ? 'exit fullscreen' : 'fullscreen';
 		editor.focus();
 	},
+
 	fullscreen = function() {
 		toolbar.insertAdjacentHTML('afterbegin', '<input type="button" id="cm_content_fullscreen" class="ed_button button" title="Toggle fullscreen mode" value="fullscreen">');
 		document.getElementById('cm_content_fullscreen').onclick = toggleFullscreen;
@@ -245,6 +277,7 @@ function heshPlugin() {
 			document.cookie = 'hesh_plugin_font_size=' + fontSize;
 		};
 	},
+
 	addMedia = function() {
 		// We want to do it only ones
 		if (!window.send_to_editor_wp) {

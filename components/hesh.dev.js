@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.6.4
+ * Version: 1.6.5
 */
 
 function heshPlugin() {
@@ -78,6 +78,9 @@ function heshPlugin() {
 		//Save changes to the textarea on the fly
 		editor.on("change", function() {
 			editor.save();
+
+			clearTimeout(ontypeSaveTimer);	
+			ontypeSaveTimer = setTimeout(updateTextareaHeight, 3000);
 		});
 
 		//Saving cursor state
@@ -98,6 +101,10 @@ function heshPlugin() {
 
 		updateTabBarPaddings();
 		window.addEventListener("resize", windowResized);
+
+		// Fix for floating tabbar in full-height mode
+		window.setTimeout(updateTextareaHeight, 3000);
+
 	},
 
 	updateTabBarPaddings = function() {
@@ -108,10 +115,14 @@ function heshPlugin() {
 
 	windowResized = function() {
 		clearTimeout(windowResizeTimer);
+		windowResizeTimer = setTimeout(updateTabBarPaddings, 250);		
+	},
 
-		windowResizeTimer = setTimeout(function() {
-			updateTabBarPaddings();
-		}, 250);		
+	ontypeSaveTimer,
+
+	updateTextareaHeight = function() {
+		document.querySelector('textarea.wp-editor-area').style.height =
+		document.querySelector('.CodeMirror').clientHeight + 'px';
 	},
 
 	addButtons = function() {

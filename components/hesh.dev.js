@@ -15,7 +15,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.6.5
+ * Version: 1.6.7
 */
 
 function heshPlugin() {
@@ -104,7 +104,6 @@ function heshPlugin() {
 
 		// Fix for floating tabbar in full-height mode
 		window.setTimeout(updateTextareaHeight, 3000);
-
 	},
 
 	updateTabBarPaddings = function() {
@@ -142,6 +141,7 @@ function heshPlugin() {
 				h3:			['<h3>','</h3>'],
 				h2:			['<h2>','</h2>'],
 				h1:			['<h1>','</h1>'],
+				p:			['<p>','</p>'],
 				i:			['<em>','</em>'],
 				b:			['<strong>','</strong>']
 			};
@@ -309,7 +309,11 @@ function heshPlugin() {
 		tab_html.onclick = toHTML;
 	} else {
 		runEditor(target);
-		if (visualEditorEnabled) tab_tmce.onclick = toVisual;
+		if (visualEditorEnabled) {
+			tab_tmce.onclick = toVisual;
+		} else {
+			document.body.className += " visual-editor-is-disabled";
+		}
 	}
 }
 window.onload = heshPlugin;

@@ -8,7 +8,7 @@
  * Plugin Name: HTML Editor Syntax Highlighter
  * Author: Petr Mukhortov
  * Author URI: http://mukhortov.com/
- * Version: 1.6.5
+ * Version: 1.6.7
 */
 
 .CodeMirror {
@@ -35,7 +35,8 @@
 #qt_content_more,
 #qt_content_close,
 #qt_content_fullscreen,
-#wp-content-editor-container .wp-editor-area /* Textarea */ {
+#wp-content-editor-container .wp-editor-area, /* Textarea */
+#ed_toolbar input.cm_ed_button#cm_content_p /* hide <p> button when visual editor is enabled */ {
 	display: none !important;
 }
 
@@ -137,6 +138,7 @@
 			z-index: 1;
 			margin-top: 35px;
 			height: auto;
+			min-height: 500px;
 		}
 		.heshFullscreen {
 			.quicktags-toolbar {
@@ -161,5 +163,11 @@
 .postarea:not(.wp-editor-expand) {
 	.CodeMirror {
 		margin-top: 0 !important;
+	}
+}
+
+.visual-editor-is-disabled {
+	#ed_toolbar input.cm_ed_button#cm_content_p {
+		display: inline-block !important;
 	}
 }

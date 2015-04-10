@@ -32,7 +32,7 @@ If you like the plugin, don’t hesitate to support me and leave a review :)
 == Changelog ==
 
 = 1.6.7 =
-* Added <p> tag button, it's visible only when the visual editor is disabled
+* Added paragraph tag button, it's visible only when the visual editor is disabled
 * Added minimum editor window height for the full-height mode
 
 = 1.6.6 =
